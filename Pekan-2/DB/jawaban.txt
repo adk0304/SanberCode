@@ -1,0 +1,6 @@
+//No.1
+CREATE DATABASE myshop;
+
+//No.2
+
+as
