@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Selamat Datang</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<center>
+	<h1>SELAMAT DATANG!</h1>
+	<h3>Terima Kasih {{$depan}} {{$belakang}} Telah Bergabung di SanberBook. Social Media Kita Bersama!</h3>
+	<img src="img/sanbercode.jpg"></center>
+</body>
+</html>

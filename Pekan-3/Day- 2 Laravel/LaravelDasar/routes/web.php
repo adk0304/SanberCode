@@ -11,6 +11,15 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('aaaa', function () {
     return view('welcome');
+});*/
+Route::get('aaa', function () {
+    return view('index');
 });
+Route::post('/welcome', function () {
+    return view('succes');
+});
+Route::get('/', 'PendahuluanController@index' );
+Route::get('/register', 'PendahuluanController@form' );
+Route::post('selamatdatang', 'PendahuluanController@berhasil' );
