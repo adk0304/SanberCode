@@ -1,0 +1,42 @@
+body{
+	/* background-color: #34eb77;
+	background-image: url("sss");
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: right top; */
+	background: #34eb77 url("ss") no-repeat fixed right;
+}
+
+#menu_web{
+	margin: 20px 0 0 0;
+}
+.menu{
+	display: inline-block;
+	color: blue;
+	background-color: white;
+	/* display: none; */
+	/* 	height: 50px;
+	width: 100px; */
+	text-decoration: none;
+
+	border: 3px solid black;
+	padding: 10px;
+
+}
+h1{
+	color: blue;
+	text-align: center;
+}
+
+h2{
+	text-align: center;
+}
+#text_panjang{
+	text-align: justify;
+	text-indent: 30px;
+}
+#text_pendek{
+	font-size: 24px; 
+	font-weight: bold;
+	width: 50%;
+}
