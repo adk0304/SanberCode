@@ -21,7 +21,7 @@
         $adults = ["Hopper", "Nancy",  "Joyce", "Jonathan", "Murray"]; 
 
         echo "<h3> Soal 2</h3>";
-        /* 
+        /*  
             SOAL NO 2
             Tunjukkan panjang Array di Soal No 1 dan tampilkan isi dari masing-masing Array.
         */

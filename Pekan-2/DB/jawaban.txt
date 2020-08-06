@@ -27,6 +27,7 @@ SELECT name,email FROM users
 SELECT * FROM items WHERE price>1000000;
 SELECT * FROM items WHERE name LIKE '%uniklo%';
 
+
 //no.5
 
 UPDATE items SET price ='2500000' WHERE name LIKE '%sumsang%'
