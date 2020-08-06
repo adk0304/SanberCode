@@ -17,9 +17,14 @@
 Route::get('aaa', function () {
     return view('index');
 });
-Route::post('/welcome', function () {
-    return view('succes');
-});
-Route::get('/', 'PendahuluanController@index' );
+
+Route::get('welcome', 'PendahuluanController@index');
 Route::get('/register', 'PendahuluanController@form' );
 Route::post('selamatdatang', 'PendahuluanController@berhasil' );
+//Templating Laravel Day 3
+Route::get('/', function () {
+    return view('items/tabel');
+});
+Route::get('/data-tabel', function () {
+    return view('items/tabel2');
+});
