@@ -15,6 +15,8 @@ class CreateLikeDislikeJawabanTable extends Migration
     {
         Schema::create('like_dislike_jawaban', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('jawaban_id');
+            $table->integer('profile_id');
             $table->timestamps();
         });
     }

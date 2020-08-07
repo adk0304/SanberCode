@@ -15,6 +15,10 @@ class CreateKomentarPertanyaanTable extends Migration
     {
         Schema::create('komentar_pertanyaan', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('isi');
+            $table->date('tanggal_dibuat');
+            $table->integer('pertanyaan_id');
+            $table->integer('profile_id');
             $table->timestamps();
         });
     }
