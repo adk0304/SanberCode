@@ -17,10 +17,11 @@ class CreatePertanyaanTable extends Migration
             $table->bigIncrements('id');
             $table->string('judul');
             $table->string('isi');
-            $table->date('tanggal_dibuat');
-            $table->date('tanggal_diperbarui');
+            $table->date('tanggal_dibuat')->nullable();
+            $table->date('tanggal_diperbarui')->nullable();
             $table->integer('jawaban_tepat_id');
-            $table->integer('profile_id');
+            $table->unsignedBigInteger('profile_id');
+            $table->foreign('profile_id')->references('id')->on('profile');
             $table->timestamps();
         });
     }
