@@ -17,8 +17,9 @@ class CreateKomentarPertanyaanTable extends Migration
             $table->bigIncrements('id');
             $table->string('isi');
             $table->date('tanggal_dibuat');
-            $table->integer('pertanyaan_id');
-            $table->integer('profile_id');
+            $table->unsignedBigInteger('pertanyaan_id');
+            $table->foreign('pertanyaan_id')->references('id')->on('pertanyaan');
+
             $table->timestamps();
         });
     }

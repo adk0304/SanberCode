@@ -19,6 +19,7 @@ class CreatePertanyaanTable extends Migration
             $table->string('isi');
             $table->date('tanggal_dibuat')->nullable();
             $table->date('tanggal_diperbarui')->nullable();
+            
             $table->integer('jawaban_tepat_id');
             $table->unsignedBigInteger('profile_id');
             $table->foreign('profile_id')->references('id')->on('profile');
