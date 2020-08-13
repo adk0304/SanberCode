@@ -2,8 +2,8 @@
 @section('content')
       <div class="card-body">
           <div class="form-group">
-            <h3>{{$detail->judul}} </h3>
-            <p>{{$detail->isi}}</p>             
+            <h3>{{$pertanyaan->judul}} </h3>
+            <p>{{$pertanyaan->isi}}</p>             
           </div>
       </div>
 @endsection

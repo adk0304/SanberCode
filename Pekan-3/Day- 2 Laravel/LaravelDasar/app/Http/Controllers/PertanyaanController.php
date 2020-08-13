@@ -15,9 +15,10 @@ class PertanyaanController extends Controller
 
     public function index()
     {
-        // mengambil data 
-        $pertanyaan = DB::table('pertanyaan')->get();
-        //dd($proyek);
+        // mengambil data QB 
+        //$pertanyaan = DB::table('pertanyaan')->get();
+        //dd($request);
+        $pertanyaan = Pertanyaan::all();
         return view('pertanyaan.listpertanyaan', compact('pertanyaan'));
     }
 
@@ -52,10 +53,16 @@ class PertanyaanController extends Controller
             "isi"=>$request["isi"]
         ]);*/
         //Eluquent 
-        $pertanyaan = new Pertanyaan;
+        /*$pertanyaan = new Pertanyaan;
         $pertanyaan->judul=$request['judul'];
         $pertanyaan->isi=$request['isi'];
-        $pertanyaan->save();
+        $pertanyaan->save();*/
+        //Mass Assigment
+        $pertanyaan = Pertanyaan::create([
+            "judul"=> $request["judul"],
+            "isi"=>$request["isi"]
+        ]);
+
         return redirect('pertanyaan')->with('success','Data berhasil disimpan');
     }
 
@@ -67,9 +74,10 @@ class PertanyaanController extends Controller
      */
     public function show($id)
     {
-        $detail = DB::table('pertanyaan')->where('id',$id)->first();
+        //$detail = DB::table('pertanyaan')->where('id',$id)->first(); //pake QB
         //dd($detail);
-        return view('pertanyaan.detail', compact('detail'));
+        $pertanyaan = Pertanyaan::find($id);
+        return view('pertanyaan.detail', compact('pertanyaan'));
 
     }
 
@@ -81,9 +89,10 @@ class PertanyaanController extends Controller
      */
     public function edit($id)
     {
-        $edit = DB::table('pertanyaan')->where('id',$id)->first();
+        //$edit = DB::table('pertanyaan')->where('id',$id)->first();
         //dd($detail);
-        return view('pertanyaan.edit', compact('edit'));
+        $pertanyaan = Pertanyaan::find($id);
+        return view('pertanyaan.edit', compact('pertanyaan'));
 
     }
 
@@ -102,13 +111,18 @@ class PertanyaanController extends Controller
             'isi' => 'required',
         ]);
 
-        $edit = DB::table('pertanyaan')
+        /*$edit = DB::table('pertanyaan')
                 ->where('id',$id)
                 ->update([
                     'judul'=>$request['judul'],
                     'isi'=>$request['isi']
-                ]);
-            return redirect('pertanyaan')->with('success','Update Data berhasil');
+                ]);  // QB */
+            $update = Pertanyaan::where('id',$id)->update([
+                "judul"=>$request['judul'],
+                "isi"=>$request['isi']
+            ]);
+
+        return redirect('pertanyaan')->with('success','Update Data berhasil');
     }
 
     /**
