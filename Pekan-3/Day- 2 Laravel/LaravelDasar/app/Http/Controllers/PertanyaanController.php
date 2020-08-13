@@ -134,7 +134,8 @@ class PertanyaanController extends Controller
     public function destroy($id)
     {
         //
-        $delete = DB::table('pertanyaan')->where('id', $id)->delete();
+        //$delete = DB::table('pertanyaan')->where('id', $id)->delete();
+        Pertanyaan::destroy($id);
         return redirect('pertanyaan')->with('success','data berhasil dihapus');
     }
 }
