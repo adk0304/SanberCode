@@ -25,9 +25,9 @@ class PendahuluanController extends Controller
     {
         //return view('success');
         //dd($request->all());
-        $firstname = $request["firstname"];
+/*        $firstname = $request["firstname"];
         $lastname = $request["lastname"];
-        return view('success', ["depan"=>$firstname,"belakang"=>$lastname]);
+        return view('success', ["depan"=>$firstname,"belakang"=>$lastname]);*/
     }
 
     /**

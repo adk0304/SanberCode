@@ -20,7 +20,7 @@ class CreatePertanyaanTable extends Migration
             $table->date('tanggal_dibuat')->nullable();
             $table->date('tanggal_diperbarui')->nullable();
             
-            $table->integer('jawaban_tepat_id');
+            $table->integer('jawaban_tepat_id')->nullable();
             $table->unsignedBigInteger('profile_id');
             $table->foreign('profile_id')->references('id')->on('profile');
             $table->timestamps();

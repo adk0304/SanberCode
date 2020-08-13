@@ -5,8 +5,12 @@
             <div class="col-lg-12">
                 <div class="card product_item_list">
                     <div class="body table-responsive">
-                        
-                        <button type="button" class="btn btn-info waves-effect m-r-20" >Tambah Pertanyaan</button>
+                        @if(session('success'))
+                        <div class="alert alert-success">
+                            {{session('success')}}                            
+                        </div>
+                        @endif
+                        <a href="/pertanyaan/create" class="btn btn-info my-2 mx-2 " >Tambah</a>
                         <table class="table table-hover m-b-0">
                             <thead>
                                 <tr>
@@ -18,23 +22,24 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <?php $no=0; ?>
-                                    @foreach ($pertanyaan as $p)
-                                    @php
-                                    $no++;
-                                    @endphp
-                                    <tr>
-                                        <th scope="row">{{$no}}</th>
-                                        {{-- <td>{{$p->id}}</td> --}}
-                                        <td>{{$p ->judul}}</td>
-                                        <td>{{$p ->isi}}</td>
-                                        {{-- <td>{{$p ->nominal_promo}}</td> --}}
-                                        <td>
-
-                                        
-                                    </tr>
-                                    @endforeach
+                                @forelse ($pertanyaan as $key => $p)
+                                  <tr>
+                                    <td> {{$key  +1 }}</td>
+                                    <td>{{$p -> judul}}</td>
+                                    <td>{{$p -> isi}}</td>
+                                    <td style="display: flex;"><a href="/pertanyaan/{{$p->id}}" class="btn btn-primary ml-1">Detail</a>
+                                        <a href="/pertanyaan/{{$p->id}}/edit" class="btn btn-info ml-1">Edit</a>
+                                        <form action="/pertanyaan/{{$p->id}}" method="post">
+                                            @csrf
+                                            @method('delete')
+                                            <input type="submit" name="delete" value="delete" class="btn btn-danger ml-1">
+                                            
+                                        </form>
+                                    </td>
+                                  </tr>
+                                  @empty
+                                  <tr>No data</tr>
+                                @endforelse 
 
                             </tbody>
                         </table>

@@ -28,7 +28,6 @@ Route::get('/', function () {
 Route::get('/data-tabel', function () {
     return view('items/tabel2');
 });
-
 //Pertanyaan
 Route::get('/pertanyaan', 'PertanyaanController@index' );
 Route::get('/pertanyaan/create', 'PertanyaanController@create' );
