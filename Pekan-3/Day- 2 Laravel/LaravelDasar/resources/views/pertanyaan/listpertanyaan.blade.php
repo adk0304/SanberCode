@@ -36,9 +36,11 @@
                                             
                                         </form>
                                     </td>
+                                    @empty
+                                    <td>No data</td>
                                   </tr>
-                                  @empty
-                                  <tr>No data</tr>
+                                  
+                                  
                                 @endforelse 
 
                             </tbody>

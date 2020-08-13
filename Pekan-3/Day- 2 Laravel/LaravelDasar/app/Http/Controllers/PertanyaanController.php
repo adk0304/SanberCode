@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use DB;
+use App\Pertanyaan;
 use Illuminate\Http\Request;
 class PertanyaanController extends Controller
 {
@@ -45,9 +46,16 @@ class PertanyaanController extends Controller
             'judul' => 'required',
             'isi' => 'required',
         ]);
-        $query = DB::table('pertanyaan')->insert([
-            "judul"=>$request["judul"],"isi"=>$request["isi"]
-        ]);
+        //Query Building
+        /*$tambah = DB::table('pertanyaan')->insert([
+            "judul"=>$request["judul"],
+            "isi"=>$request["isi"]
+        ]);*/
+        //Eluquent 
+        $pertanyaan = new Pertanyaan;
+        $pertanyaan->judul=$request['judul'];
+        $pertanyaan->isi=$request['isi'];
+        $pertanyaan->save();
         return redirect('pertanyaan')->with('success','Data berhasil disimpan');
     }
 
